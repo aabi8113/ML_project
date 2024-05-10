@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>WebPage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                </ul>
+            </div>
+            <div class="cre">
+                <form action="{{ url_for('login') }} "method="POST">
+                    <p>{{ message }}</p>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit" style="color: rgb(0, 0, 0); background-color: aliceblue; width: 50%; display: flex; justify-content: center;">Login</button>
+                    <div class="signup-link">
+                        <p>Don't have an account? <a href="{{ url_for('signup') }}" style="color: white;">Sign up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1><br><br>COASTAL DESTRUCTION ANALYSIS<br>USING MACHINE LEARNING<br><br></h1>
+            <p class="par">
+                Utilizing advanced machine learning techniques <br>and satellite imagery analysis,
+                this project has<br> developed a robust system for evaluating coastal <br>infrastructure damage caused by natural disasters, <br>
+                particularly hurricanes.<br><br>
+            </p>
+        </div>
+
+            
+    </div>
+    <script src=""></script>
+</body>
+</html>

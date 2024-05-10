@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/display.css') }}">
+</head>
+<body>
+    <h1 style="display: flex; flex-direction: column; align-items: center; padding-top: 30px; letter-spacing: 1px;">INFERENCE</h1>
+    <div class="bb">
+    <div class="bigc">
+        <div class="image-container">
+            <img src="{{ url_for('annotated_image', filename=filename) }}" alt="Annotated Image">
+        </div>
+        <br>
+        <div class="labels-content-container">
+            <div class="labels-container">
+                <div class="label-item">
+                    <div class="color-square red"></div>
+                    - Damaged Commercial Building
+                </div>
+                <div class="label-item">
+                    <div class="color-square yellow"></div>
+                    - Undamaged Residential Building
+                </div>
+                <div class="label-item">
+                    <div class="color-square pink"></div>
+                    - Damaged Residential Building
+                </div>
+                <div class="label-item">
+                    <div class="color-square dark-orange"></div>
+                    - Undamaged Commercial Building
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div class="ver">
+            {% if p_destruction >= 40 %}
+                <h5>THIS AREA NEEDS IMMEDIATE AID DISTRIBUTION</h5>
+            {% elif p_destruction >= 25 and p_destruction < 40 %}
+                <h5>THIS AREA NEEDS CRITICAL INSPECTION</h5>
+            {% else %}
+                <h5>THIS AREA HAS MINIMAL DAMAGE BUT <br>SHOULD BE KEPT UNDER RADAR</h5>
+            {% endif %}
+        </div>
+        <div class="p">
+        <p>Total Destruction Percentage : {{ '%.2f' % p_destruction }}%</p>
+        <p>Commercial Destruction Percentage : {{ '%.2f' % p_commercial }}%</p>
+        <p>Residential Destruction Percentage : {{ '%.2f' % p_residential }}%</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

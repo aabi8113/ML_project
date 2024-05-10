@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="{{ url_for('index') }}">HOME</a></li>
+            <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+        </ul>
+    </div>
+
+    <div class="cre">
+        <h2>Sign Up</h2>
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit" style="color: rgb(0, 0, 0); background-color: aliceblue; width: 50%; display: flex; justify-content: center;">Sign Up</button>
+            <div class="signup-link">
+                <p>Already have an account? <a href="{{ url_for('index') }}" style="color: white;">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
